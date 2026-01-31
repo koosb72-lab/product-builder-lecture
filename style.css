@@ -1,9 +1,32 @@
+:root {
+    --bg-gradient-start: #6dd5ed;
+    --bg-gradient-end: #2193b0;
+    --text-color: #333;
+
+    /* Component theme */
+    --lotto-container-bg: rgba(255, 255, 255, 0.1);
+    --lotto-text-color: #fff;
+    --lotto-container-border: rgba(255, 255, 255, 0.18);
+}
+
+[data-theme="dark"] {
+    --bg-gradient-start: #232526;
+    --bg-gradient-end: #414345;
+    --text-color: #fff;
+
+    /* Dark mode component theme */
+    --lotto-container-bg: rgba(0, 0, 0, 0.2);
+    --lotto-text-color: #eee;
+    --lotto-container-border: rgba(255, 255, 255, 0.1);
+}
+
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    background: linear-gradient(to right, var(--bg-gradient-start), var(--bg-gradient-end));
     margin: 0;
+    transition: background 0.3s ease;
 }

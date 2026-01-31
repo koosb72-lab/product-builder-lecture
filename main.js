@@ -1,3 +1,33 @@
+// Theme switching logic
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    // Apply saved theme on initial load
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    if (themeToggle) {
+        themeToggle.textContent = savedTheme === 'dark' ? '라이트 모드' : '다크 모드';
+    }
+
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '다크 모드';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '라이트 모드';
+            }
+        });
+    }
+});
+
+
 class LottoGenerator extends HTMLElement {
     constructor() {
         super();
@@ -33,19 +63,21 @@ class LottoGenerator extends HTMLElement {
                 min-height: 100vh;
             }
             .lotto-container {
-                background: rgba(255, 255, 255, 0.1);
+                background: var(--lotto-container-bg);
                 backdrop-filter: blur(10px);
                 border-radius: 20px;
                 padding: 40px;
                 box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-                border: 1px solid rgba(255, 255, 255, 0.18);
+                border: 1px solid var(--lotto-container-border);
                 text-align: center;
+                transition: background 0.3s ease, border 0.3s ease;
             }
             h1 {
-                color: #fff;
+                color: var(--lotto-text-color);
                 font-size: 2.5em;
                 margin-bottom: 30px;
                 text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+                transition: color 0.3s ease;
             }
             .numbers-container {
                 display: flex;
@@ -87,7 +119,7 @@ class LottoGenerator extends HTMLElement {
                 background: linear-gradient(45deg, #ff6b6b, #feca57);
                 border: none;
                 border-radius: 50px;
-                color: white;
+                color: #fff;
                 padding: 15px 35px;
                 font-size: 1.2em;
                 font-weight: bold;
