@@ -1,1 +1,9 @@
-/* Add styles here */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    margin: 0;
+}
