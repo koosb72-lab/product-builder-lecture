@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오늘의 사주 보기</title>
+  <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header-row">
+      <h1>오늘의 사주 보기</h1>
+      <button id="theme-toggle-btn" type="button" aria-label="Toggle theme">Dark Mode</button>
+    </div>
+
+    <p class="subtitle">생년월일과 시간을 입력하면 오늘의 흐름을 간단히 알려드려요.</p>
+
+    <div class="lang-links">
+      <a href="/index.html">Dinner</a>
+      <span>/</span>
+      <a href="/en.html">EN</a>
+      <span>/</span>
+      <a href="/saju.html" aria-current="page">Saju</a>
+    </div>
+
+    <div class="saju-form">
+      <div class="form-row">
+        <label for="name-input">이름</label>
+        <input id="name-input" type="text" placeholder="홍길동">
+      </div>
+
+      <div class="form-row">
+        <label for="birth-date">생년월일</label>
+        <input id="birth-date" type="date">
+      </div>
+
+      <div class="form-row">
+        <label for="birth-time">출생 시간</label>
+        <input id="birth-time" type="time">
+      </div>
+
+      <div class="form-row">
+        <label for="gender-select">성별</label>
+        <select id="gender-select">
+          <option value="미선택">선택 안 함</option>
+          <option value="여성">여성</option>
+          <option value="남성">남성</option>
+        </select>
+      </div>
+    </div>
+
+    <button id="saju-btn">사주 결과 보기</button>
+
+    <div id="saju-result" class="result-card hidden">
+      <p id="result-summary"></p>
+      <p id="result-zodiac"></p>
+      <p id="result-element"></p>
+      <p id="result-advice"></p>
+      <p id="result-lucky"></p>
+    </div>
+  </div>
+
+  <script defer src="/saju.js"></script>
+</body>
+</html>
