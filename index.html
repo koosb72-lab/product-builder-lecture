@@ -41,6 +41,24 @@
     </div>
 
     <button id="recommend-btn">메뉴 추천받기</button>
+
+    <div class="comments-section">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          this.page.url = window.location.origin + '/index.html';
+          this.page.identifier = 'dinner-menu-kr';
+        };
+
+        (function() {
+          var d = document, s = d.createElement('script');
+          s.src = 'https://productbuild-4.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
   </div>
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
